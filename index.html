@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimationConfirm - Based on Pinterest</title>
+
+    <!--Chamando os CDNs-->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+    
+    <div class="CentralizarTudo">
+
+    <button onclick="ConfirmAnimate()" class="ConfirmButton" id="ConfirmButton">
+        <i style="font-size: 20px;" id="iconCheck" class='bi-check'></i> <label id="lblConfirm"> Confirm </label>
+    </button>
+
+    </div>
+    <script>
+
+
+        //Hide Icon // Escondendo o ícone
+        $("#iconCheck").hide() 
+
+        //Call the animation // Chamando a animação
+        function ConfirmAnimate() {
+            $("#lblConfirm").text("");
+            $("#iconCheck").show();
+            $("#ConfirmButton").css('backgroundColor', 'transparent');
+            $("#ConfirmButton").css('borderColor', '#2cb959')
+            $("#ConfirmButton").css('color', '#2cb959');
+            $("#ConfirmButton").css('border-width', '2px');
+            $("#ConfirmButton").css('border-style', 'solid');
+
+            // Timing to show sucessfull // Setando um tempo para aparecer Sucesso
+            setTimeout(() => {
+                $("#lblConfirm").text("Sucessfull");
+                //Back to the normal //Voltando ao style inicial
+                setTimeout(() => {
+                    $("#lblConfirm").text("Confirm");
+            $("#iconCheck").hide();
+            $("#ConfirmButton").css('backgroundColor', '#2cb959');
+            $("#ConfirmButton").css('border-color', 'none');
+            $("#ConfirmButton").css('color', 'white');
+            $("#ConfirmButton").css('border-width', 'none');
+            $("#ConfirmButton").css('border-style', 'none');
+                }, 2000);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
